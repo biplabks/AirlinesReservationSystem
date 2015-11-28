@@ -54,9 +54,9 @@ namespace AirlinesReservationSystem
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "215144342151957",
+               appSecret: "758294222f020d3cf7f8680a4a71b11d");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             //{

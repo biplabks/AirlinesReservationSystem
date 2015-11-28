@@ -3,13 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using AirlinesReservationSystem.Models;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace AirlinesReservationSystem.Controllers
 {
     public class HomeController : Controller
     {
+        public ApplicationDbContext db = new ApplicationDbContext();
+
+        [Authorize]
         public ActionResult Index()
         {
+            var userId = User.Identity.GetUserId();
+            var checkingAccountId = db.CheckingAccounts.Where(c=>c.ApplicationUserId == userId).First().Id;
+            ViewBag.CheckingAccountId = checkingAccountId;
+            var manager = HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            var user = manager.FindById(userId);
+            ViewBag.pin = user.Pin;
             return View();
         }
 
@@ -33,7 +45,7 @@ namespace AirlinesReservationSystem.Controllers
             //TODO: Send Message to HQ
             ViewBag.TheMessage = "Thanks, we got your message!";
 
-            return View();
+            return PartialView("_ContactThanks");
         }
 
         public ActionResult Foo()
