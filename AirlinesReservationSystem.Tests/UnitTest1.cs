@@ -21,7 +21,7 @@ namespace AirlinesReservationSystem.Tests
         public void ContactFormSaysThanks()
         {
             var homeController = new HomeController();
-            var result = homeController.Contact("I love your fly Texas.") as ViewResult;
+            var result = homeController.Contact("I love your fly Texas.") as PartialViewResult;
             Assert.IsNotNull("Thanks!", result.ViewBag.TheMessage);
         }
 
