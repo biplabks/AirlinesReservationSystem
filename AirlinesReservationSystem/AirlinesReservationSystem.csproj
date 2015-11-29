@@ -176,6 +176,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511282251266_InitialCreate.cs" />
+    <Compile Include="Migrations\201511282251266_InitialCreate.Designer.cs">
+      <DependentUpon>201511282251266_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
@@ -184,6 +188,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Models\TransferViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CheckingAccountService.cs" />
     <Compile Include="Startup.cs" />
@@ -273,8 +278,17 @@
     <Content Include="Views\CheckingAccount\List.cshtml" />
     <Content Include="Views\Home\_ContactThanks.cshtml" />
     <Content Include="Views\CheckingAccount\Statement.cshtml" />
+    <Content Include="Views\Transaction\QuickCashInsufficientFunds.cshtml" />
+    <Content Include="Views\Transaction\Transfer.cshtml" />
+    <Content Include="Views\Transaction\Withdrawal.cshtml" />
+    <Content Include="Views\Transaction\_TransferForm.cshtml" />
+    <Content Include="Views\Transaction\_TransferSuccess.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201511282251266_InitialCreate.resx">
+      <DependentUpon>201511282251266_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
