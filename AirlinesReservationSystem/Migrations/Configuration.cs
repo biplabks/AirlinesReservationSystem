@@ -13,7 +13,7 @@ namespace AirlinesReservationSystem.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
+            AutomaticMigrationsEnabled = false;
             AutomaticMigrationDataLossAllowed = true;
             ContextKey = "AirlinesReservationSystem.Models.ApplicationDbContext";
         }
