@@ -1,0 +1,39 @@
+﻿@model IEnumerable<AirlinesReservationSystem.Models.BookingAgent>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.agent_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.agent_details)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.agent_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.agent_details)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.agent_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.agent_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.agent_id })
+        </td>
+    </tr>
+}
+
+</table>

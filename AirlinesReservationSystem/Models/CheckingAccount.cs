@@ -42,5 +42,7 @@ namespace AirlinesReservationSystem.Models
         public string ApplicationUserId { get; set; }
 
         public virtual ICollection<Transaction> Transactions { get; set; }
+
+        //public virtual ICollection<Airport> Airports { get; set; }
     }
 }

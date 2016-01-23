@@ -169,9 +169,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AircraftTypeController.cs" />
+    <Compile Include="Controllers\AirportController.cs" />
+    <Compile Include="Controllers\BookingAgentsController.cs" />
     <Compile Include="Controllers\CheckingAccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PassengersController.cs" />
     <Compile Include="Controllers\TransactionController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -180,15 +184,53 @@
     <Compile Include="Migrations\201511282251266_InitialCreate.Designer.cs">
       <DependentUpon>201511282251266_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201511300730326_ARS1.cs" />
+    <Compile Include="Migrations\201511300730326_ARS1.Designer.cs">
+      <DependentUpon>201511300730326_ARS1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512020720301_ARS2.cs" />
+    <Compile Include="Migrations\201512020720301_ARS2.Designer.cs">
+      <DependentUpon>201512020720301_ARS2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512020724293_ARS3.cs" />
+    <Compile Include="Migrations\201512020724293_ARS3.Designer.cs">
+      <DependentUpon>201512020724293_ARS3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512020740536_ARS4.cs" />
+    <Compile Include="Migrations\201512020740536_ARS4.Designer.cs">
+      <DependentUpon>201512020740536_ARS4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512020755424_ARS5.cs" />
+    <Compile Include="Migrations\201512020755424_ARS5.Designer.cs">
+      <DependentUpon>201512020755424_ARS5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\AircraftType.cs" />
+    <Compile Include="Models\Airport.cs" />
     <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\BookingAgent.cs" />
+    <Compile Include="Models\BookingStatus.cs" />
+    <Compile Include="Models\Calendar.cs" />
     <Compile Include="Models\CheckingAccount.cs" />
     <Compile Include="Models\FakeDbSet.cs" />
+    <Compile Include="Models\FlightCost.cs" />
+    <Compile Include="Models\FlightSchedule.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ItineraryLeg.cs" />
+    <Compile Include="Models\ItineraryReservation.cs" />
+    <Compile Include="Models\Leg.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Airline.cs" />
+    <Compile Include="Models\Passenger.cs" />
+    <Compile Include="Models\Payment.cs" />
+    <Compile Include="Models\PaymentStatus.cs" />
+    <Compile Include="Models\ReservationPayment.cs" />
+    <Compile Include="Models\ReservationStatus.cs" />
+    <Compile Include="Models\TicketType.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\TransferViewModel.cs" />
+    <Compile Include="Models\TravelClass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\CheckingAccountService.cs" />
     <Compile Include="Startup.cs" />
@@ -283,16 +325,44 @@
     <Content Include="Views\Transaction\Withdrawal.cshtml" />
     <Content Include="Views\Transaction\_TransferForm.cshtml" />
     <Content Include="Views\Transaction\_TransferSuccess.cshtml" />
+    <Content Include="Views\AircraftType\Add.cshtml" />
+    <Content Include="Views\Airport\Add.cshtml" />
+    <Content Include="Views\Passengers\Create.cshtml" />
+    <Content Include="Views\Passengers\Delete.cshtml" />
+    <Content Include="Views\Passengers\Details.cshtml" />
+    <Content Include="Views\Passengers\Edit.cshtml" />
+    <Content Include="Views\Passengers\Index.cshtml" />
+    <Content Include="Views\BookingAgents\Create.cshtml" />
+    <Content Include="Views\BookingAgents\Delete.cshtml" />
+    <Content Include="Views\BookingAgents\Details.cshtml" />
+    <Content Include="Views\BookingAgents\Edit.cshtml" />
+    <Content Include="Views\BookingAgents\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201511282251266_InitialCreate.resx">
       <DependentUpon>201511282251266_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511300730326_ARS1.resx">
+      <DependentUpon>201511300730326_ARS1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512020720301_ARS2.resx">
+      <DependentUpon>201512020720301_ARS2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512020724293_ARS3.resx">
+      <DependentUpon>201512020724293_ARS3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512020740536_ARS4.resx">
+      <DependentUpon>201512020740536_ARS4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512020755424_ARS5.resx">
+      <DependentUpon>201512020755424_ARS5.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
